@@ -1,0 +1,12 @@
+# OpenAI Agents SDK
+openai-agents>=0.7.0
+
+# Web Framework
+fastapi
+uvicorn[standard]
+
+# Environment Variables
+python-dotenv
+
+# Additional Dependencies
+pydantic
