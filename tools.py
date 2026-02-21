@@ -1,10 +1,9 @@
 """
 Calculator Tools for CalculatorAgent
-Basic arithmetic operations: addition, subtraction, multiplication, division, modulo, square root
+Basic arithmetic operations: addition, subtraction, multiplication, division, modulo
 """
 
 from agents import function_tool
-import math
 
 
 @function_tool
@@ -96,25 +95,4 @@ def modulo(a: float, b: float) -> float:
         raise ValueError("Cannot perform modulo by zero")
 
     result = a % b
-    return result
-
-
-@function_tool
-def sqrt(a: float) -> float:
-    """
-    Calculate the square root of a number.
-
-    Args:
-        a: Number to find square root of
-
-    Returns:
-        Square root of a
-
-    Raises:
-        ValueError: If a is negative
-    """
-    if a < 0:
-        raise ValueError("Cannot calculate square root of a negative number")
-
-    result = math.sqrt(a)
     return result
