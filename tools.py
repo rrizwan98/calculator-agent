@@ -1,6 +1,6 @@
 """
 Calculator Tools for CalculatorAgent
-Basic arithmetic operations: addition, subtraction, multiplication, division, modulo, square root
+Basic arithmetic operations: addition, subtraction, multiplication, division, modulo, square root, power
 """
 
 from agents import function_tool
@@ -117,4 +117,20 @@ def sqrt(a: float) -> float:
         raise ValueError("Cannot calculate square root of a negative number")
 
     result = math.sqrt(a)
+    return result
+
+
+@function_tool
+def power(a: float, b: float) -> float:
+    """
+    Raise first number to the power of second number.
+
+    Args:
+        a: Base number
+        b: Exponent
+
+    Returns:
+        a raised to the power of b (a^b)
+    """
+    result = a ** b
     return result

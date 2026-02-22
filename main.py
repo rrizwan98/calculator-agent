@@ -39,7 +39,7 @@ class ChatResponse(BaseModel):
 
 class CalculateRequest(BaseModel):
     """Request model for direct calculation endpoint"""
-    operation: str  # "add", "subtract", "multiply", "divide", "modulo", "sqrt"
+    operation: str  # "add", "subtract", "multiply", "divide", "modulo", "sqrt", "power"
     a: float
     b: float | None = None  # Optional for unary operations like sqrt
 
@@ -125,7 +125,7 @@ async def calculate(request: CalculateRequest):
         CalculateResponse with the result
     """
     try:
-        from tools import add, subtract, multiply, divide, modulo, sqrt
+        from tools import add, subtract, multiply, divide, modulo, sqrt, power
 
         operations = {
             "add": add,
@@ -134,6 +134,7 @@ async def calculate(request: CalculateRequest):
             "divide": divide,
             "modulo": modulo,
             "sqrt": sqrt,
+            "power": power,
         }
 
         if request.operation not in operations:
