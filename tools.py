@@ -1,6 +1,6 @@
 """
 Calculator Tools for CalculatorAgent
-Basic arithmetic operations: addition, subtraction, multiplication, division, modulo, square root, power
+Basic arithmetic operations: addition, subtraction, multiplication, division, modulo, square root, power, absolute
 """
 
 from agents import function_tool
@@ -133,4 +133,19 @@ def power(a: float, b: float) -> float:
         a raised to the power of b (a^b)
     """
     result = a ** b
+    return result
+
+
+@function_tool
+def absolute(a: float) -> float:
+    """
+    Calculate the absolute value of a number.
+
+    Args:
+        a: Number to find absolute value of
+
+    Returns:
+        Absolute value of a (|a|)
+    """
+    result = abs(a)
     return result

@@ -4,12 +4,12 @@ Simple calculator agent that performs basic arithmetic operations through natura
 """
 
 from agents import Agent
-from tools import add, subtract, multiply, divide, modulo, sqrt, power
+from tools import add, subtract, multiply, divide, modulo, sqrt, power, absolute
 from guardrails import validate_input_length
 
 agent = Agent(
     name="CalculatorAgent",
-    instructions="""You are a helpful calculator assistant. When users ask you to perform calculations, use the appropriate calculator tools (add, subtract, multiply, divide, modulo, sqrt, power). Extract numbers from their natural language queries and perform the calculations. Always explain what calculation you're doing and provide the result in a friendly, conversational way.""",
+    instructions="""You are a helpful calculator assistant. When users ask you to perform calculations, use the appropriate calculator tools (add, subtract, multiply, divide, modulo, sqrt, power, absolute). Extract numbers from their natural language queries and perform the calculations. Always explain what calculation you're doing and provide the result in a friendly, conversational way.""",
     tools=[
         add,
         subtract,
@@ -18,6 +18,7 @@ agent = Agent(
         modulo,
         sqrt,
         power,
+        absolute,
     ],
     input_guardrails=[validate_input_length],
 )
