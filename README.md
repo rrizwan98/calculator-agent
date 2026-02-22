@@ -16,6 +16,7 @@ This is an AI-powered calculator agent built with the OpenAI Agents SDK. It unde
 - **Modulo**: Get the remainder when dividing one number by another
 - **Square Root**: Calculate the square root of a number
 - **Power**: Raise a number to the power of another (a^b)
+- **Absolute**: Get the absolute value of a number (|a|)
 
 ### Capabilities
 - Natural language understanding (e.g., "add 5 and 22", "what is 10 divided by 2?")
@@ -103,6 +104,7 @@ Response:
 - "what is 17 modulo 5?" or "get remainder of 20 divided by 3"
 - "what is the square root of 16?" or "calculate sqrt of 25"
 - "what is 2 to the power of 8?" or "calculate 3 raised to 4"
+- "what is the absolute value of -5?" or "calculate |−10|"
 
 ### Calculate Endpoint (Direct API)
 
@@ -136,6 +138,7 @@ Response:
 - `modulo` - Modulo (remainder)
 - `sqrt` - Square root (only requires parameter `a`)
 - `power` - Power/Exponentiation (a^b)
+- `absolute` - Absolute value (only requires parameter `a`)
 
 ### Health Check
 

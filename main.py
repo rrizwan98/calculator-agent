@@ -39,9 +39,9 @@ class ChatResponse(BaseModel):
 
 class CalculateRequest(BaseModel):
     """Request model for direct calculation endpoint"""
-    operation: str  # "add", "subtract", "multiply", "divide", "modulo", "sqrt", "power"
+    operation: str  # "add", "subtract", "multiply", "divide", "modulo", "sqrt", "power", "absolute"
     a: float
-    b: float | None = None  # Optional for unary operations like sqrt
+    b: float | None = None  # Optional for unary operations like sqrt, absolute
 
 
 class CalculateResponse(BaseModel):
@@ -125,7 +125,7 @@ async def calculate(request: CalculateRequest):
         CalculateResponse with the result
     """
     try:
-        from tools import add, subtract, multiply, divide, modulo, sqrt, power
+        from tools import add, subtract, multiply, divide, modulo, sqrt, power, absolute
 
         operations = {
             "add": add,
@@ -135,6 +135,7 @@ async def calculate(request: CalculateRequest):
             "modulo": modulo,
             "sqrt": sqrt,
             "power": power,
+            "absolute": absolute,
         }
 
         if request.operation not in operations:
@@ -146,8 +147,8 @@ async def calculate(request: CalculateRequest):
         # Perform calculation
         tool_func = operations[request.operation]
 
-        # Handle unary operations (like sqrt) that only need one argument
-        if request.operation == "sqrt":
+        # Handle unary operations (like sqrt, absolute) that only need one argument
+        if request.operation in ["sqrt", "absolute"]:
             result = tool_func(request.a)
         else:
             result = tool_func(request.a, request.b)
